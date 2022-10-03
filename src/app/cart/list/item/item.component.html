@@ -1,0 +1,46 @@
+<div class="card mb-3">
+    <div class="row g-0">
+        <div class="col-3">
+            <img [src]='imageUrl' class="img-fluid rounded-start" alt="...">
+        </div>
+        <div class="col-9">
+            <div class="card-body text-start">
+                <h5 class="card-title">{{item.product?.company?.name}}</h5>
+                <p class="card-text mb-0">{{item.product?.name}}</p>
+                <p class="card-text mb-1"><small class="text-muted">Sold by: {{item.product?.seller?.name}}</small></p>
+                <div class="mt-2">
+                    <div class="d-inline me-5 bg-light">
+                        <div class="btn-group">
+                            <button class="btn btn-secondary btn-sm dropdown-toggle" (click)="showSizeItem()">
+                                Size: {{item.size.sizeNo}}
+                            </button>
+                        </div>
+                    </div>
+                    <div class="d-inline bg-light">
+                        <div class="btn-group btn-group-sm">
+                            <button class="btn btn-outline-secondary" (click)="incrementQuantity(index)">+</button>
+                            <button class="btn btn-outline-secondary" disabled><span
+                                    class="text-dark">{{item.quantity}}</span></button>
+                            <button class="btn btn-outline-secondary" (click)="decrementQuantity(index)">-</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row mt-3" *ngIf="show">
+                    <div class="col-md-12 bg-danger me-2 d-flex align-items-center justify-content-center"
+                        *ngFor="let size of sizes;" (click)="selectSize(item, size)"
+                        style="width: 40px; height: 40px; border-radius: 20px; cursor: pointer;">
+                        <span style="font-size: 20px; color: white;">{{size.sizeNo}}</span>
+                    </div>
+                </div>
+
+                <div class="mt-3">
+                    <span>&#8377; {{price}}</span>
+                    <span class="ms-3 text-decoration-line-through text-secondary">&#8377;
+                        {{item.size.price.mrp}}</span>
+                    <span class="ms-3 text-danger">{{item.size.price.discount}}% OFF</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,57 @@
+<div class="card text-dark bg-light mb-3 mt-3" *ngIf="no_Of_Items">
+    <div class="card-header fw-bold text-secondary">PRICE DETAILS</div>
+    <div class="card-body bg-white">
+        <div class="d-flex justify-content-between">
+            <div class="align-self-center">
+                <span class="">Price ({{no_Of_Items}} items)</span>
+            </div>
+            <div>
+                <span>{{sub_total}}</span>
+            </div>
+        </div>
+
+        <div class="d-flex justify-content-between mt-2">
+            <div class="align-self-center">
+                <span class="" style="font-weight: 400;">Discount</span>
+            </div>
+            <div>
+                <span class="text-success">-{{total_discount}}</span>
+            </div>
+        </div>
+
+        <div class="d-flex justify-content-between mt-2">
+            <div class="align-self-center">
+                <span class="" style="font-weight: 400;">Delivery Charges</span>
+            </div>
+            <div>
+                <span class="text-success">{{delivery_charges === 0 ? 'FREE' : delivery_charges}}</span>
+            </div>
+        </div>
+
+        <div class="d-flex justify-content-between mt-2">
+            <div class="align-self-center">
+                <span class="" style="font-weight: 400;">Secured Packaging Fee</span>
+            </div>
+            <div>
+                <span>{{security_fees}}</span>
+            </div>
+        </div>
+        <hr>
+        <div class="d-flex justify-content-between">
+            <div class="align-self-center">
+                <span class="" style="font-weight: 600;">Total Amount</span>
+            </div>
+            <div>
+                <span>{{sub_total + security_fees - total_discount + delivery_charges}}</span>
+            </div>
+        </div>
+        <hr>
+        <div>
+            <span class="text-success" style="font-weight: 700;">You will save &#8377;{{total_discount -
+                security_fees}} on this order</span>
+        </div>
+        <div class="mt-3 d-grid">
+            <button class="btn btn-danger">Place Order</button>
+        </div>
+    </div>
+</div>

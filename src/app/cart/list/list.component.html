@@ -1,0 +1,13 @@
+<div class="container">
+    <div class="row">
+        <div class="col border border-1 p-2 mt-3">
+            <app-item *ngFor="let item of cartItems; let i = index" [item]="item" [index]="i"></app-item>
+            <div *ngIf="cartItems.length==0">
+                <p>Add item to the cart</p>
+                <button class="btn btn-outline-danger mt-0">
+                    Shop now
+                </button>
+            </div>
+        </div>
+    </div>
+</div>

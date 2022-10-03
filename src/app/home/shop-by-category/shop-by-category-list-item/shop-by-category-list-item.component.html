@@ -1,0 +1,18 @@
+<div class="m-1 p-1 bg-success shadow rounded">
+    <div class="card" style="width: 200px; height:270px">
+        <img [src]="item.imgUrl" class="card-img img-responsive" style="width: 100%; height:100%" alt="...">
+        <div class="card-img-overlay justify-content-center d-flex align-items-end"
+            style="background: rgba(0,0,0,0.4);">
+            <div class="text-white text-center" style="width:100%">
+                <h6 class="card-title">{{item.category.name}}</h6>
+                <p class="card-text mt-0 mb-0">
+                    {{item.discount.min!=0 ? item.discount.min + ' - ' + item.discount.max + '% OFF' : 'Up To ' +
+                    item.discount.max + '% OFF'}}
+                </p>
+                <p class="card-text mt-0 mb-0">{{item.usedBy === 'male' ? '+him' : item.usedBy === 'female' ? '+her' :
+                    'shop now'}}
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
